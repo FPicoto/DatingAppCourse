@@ -4,12 +4,11 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using API.Data;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class UsersController : ControllerBase
+    public class UsersController : BaseAPIController
     {
         private readonly DataContext _context;
         public UsersController(DataContext context)
@@ -24,6 +23,7 @@ namespace API.Controllers
             return users;
         }
 
+        [Authorize]
         [HttpGet("{id}")]
         public async Task<ActionResult<AppUser>> GetUser(int id)
         {
