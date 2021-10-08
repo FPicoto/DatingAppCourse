@@ -21,6 +21,8 @@ namespace API.Controllers
         {
             var users = _context.Users.ToListAsync().Result;
             return users;
+
+            //return await _context.Users.ToListAsync();
         }
 
         [Authorize]
