@@ -19,10 +19,10 @@ namespace API.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AppUser>>> GetUsers()
         {
-            var users = _context.Users.ToListAsync().Result;
-            return users;
+            //var users = _context.Users.ToListAsync().Result;
+            //return users;
 
-            //return await _context.Users.ToListAsync();
+            return await _context.Users.ToListAsync();
         }
 
         [Authorize]
